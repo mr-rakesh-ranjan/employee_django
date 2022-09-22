@@ -1,0 +1,42 @@
+
+    {% include 'emp_tamplates/emp_navbar.html' %}
+    <h1 class="text-center my-3">Employee Management</h1>
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#Sno.</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for e in emps %}
+                                <tr>
+                                    <td>{{forloop.counter}}</td>
+                                    <td>{{e.first_name}} {{last_name}}</td>
+                                    <td>{{e.email}}</td>
+                                    <td>{{e.phone}}</td>
+                                    <td>
+                                        <a href="#" class="btn btn-secondary btn-sm">View</a>
+                                        <a href="/emp/update-employee/{{e.emp_id}}" class="btn btn-dark btn-sm">Update</a>
+                                        <a href="/emp/delete-employee/{{e.emp_id}}" class="btn btn-danger btn-sm">Delete</a>
+                                        
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {% include 'emp_tamplates/emp_footer.html' %}

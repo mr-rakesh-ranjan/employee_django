@@ -13,5 +13,9 @@ class Employee(models.Model):
     address=models.CharField(max_length=30)
     department=models.CharField(max_length=45)
     emp_isActive=models.BooleanField(default=True)
+
+    # costomise admin pannel
+    def __str__(self) -> str:
+        return self.emp_id
     
 
